@@ -1,0 +1,15 @@
+.shine[data-active="true"]::after {
+  border-radius: inherit;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  background-image: radial-gradient(128px circle at 64px 64px,
+      rgba(255, 255, 255, 0.4),
+      transparent 40%);
+  z-index: 3;
+  background-position: 50% 50%;
+  background-size: 200% 200%;
+  transform: scale(5);
+}
