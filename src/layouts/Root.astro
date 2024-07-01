@@ -1,6 +1,13 @@
 ---
 import '@fontsource-variable/rubik'
 import { ViewTransitions } from 'astro:transitions'
+import { games } from '@/lib/data'
+
+const allImages = games.flatMap((game) => [
+  game.banner,
+  game.largeIcon,
+  game.icon,
+])
 ---
 
 <html lang="en">
@@ -9,6 +16,11 @@ import { ViewTransitions } from 'astro:transitions'
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    {
+      allImages.map((image) => (
+        <link rel="preload" href={image} as="image" type="image/webp" />
+      ))
+    }
     <title>PS5 Home Screen</title>
     <ViewTransitions />
   </head>

@@ -2,7 +2,6 @@ import "./main.css";
 import { AnimatePresence, motion as m } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { games } from "@/lib/data";
-import WrenchAvatar from "@/assets/wrench.webp";
 import { cn } from "@/lib/utils";
 
 export default function MainScreen() {
@@ -87,7 +86,7 @@ export default function MainScreen() {
 							<m.img
 								className="fixed inset-0 w-full h-full object-cover z-[-1]"
 								key={index}
-								src={game.banner.src}
+								src={game.banner}
 								alt={game.name}
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
@@ -130,7 +129,7 @@ export default function MainScreen() {
 									layout="preserve-aspect"
 									transition={{ duration: 0.2 }}
 									className={cn("rounded-xl size-full absolute inset-0")}
-									src={game.icon.src}
+									src={game.icon}
 									alt={game.name}
 								/>
 								<AnimatePresence mode="popLayout" initial={false}>
@@ -167,7 +166,7 @@ export default function MainScreen() {
 											"h-auto",
 											game.largeIconShape === "square" ? "w-60" : "w-[30rem]",
 										)}
-										src={game.largeIcon.src}
+										src={game.largeIcon}
 										alt={`${game.name} icon`}
 									/>
 									<p className="max-w-prose">{game.desc}</p>
@@ -235,7 +234,7 @@ function Header() {
 				<button>
 					<img
 						className="size-8 rounded-full"
-						src={WrenchAvatar.src}
+						src={"assets/wrench.webp"}
 						alt="Watch Dogs 2 Wrench"
 					/>
 				</button>
